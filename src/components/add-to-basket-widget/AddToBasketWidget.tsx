@@ -5,7 +5,7 @@ import IProduct from "../../types/IProduct";
 const AddToBasketWidget: React.FC<IProduct> = (product) => {
 	return (
 		<div style={{ border: "1px solid rgba(0, 0, 0, 0.12)" }}>
-			<div className="mt-3 pb-2 px-4">
+			<div className="pt-3 pb-2 px-4">
 				<div className="flex justify-between">
 					<p>Price:</p> <p>£{product.price}</p>
 				</div>
@@ -18,7 +18,7 @@ const AddToBasketWidget: React.FC<IProduct> = (product) => {
 				</div>
 			</div>
 			<Divider className="my-1" />
-			<div className="py-2 px-4">
+			<div className="pb-3 pt-2 px-4">
 				<Button
 					variant="contained"
 					fullWidth={true}
