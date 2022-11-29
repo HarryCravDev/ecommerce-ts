@@ -1,15 +1,8 @@
-import {
-	Button,
-	Card,
-	CardMedia,
-	Divider,
-	Grid,
-	List,
-	ListItem,
-	ListItemText,
-} from "@mui/material";
+import { Button, Card, CardMedia, Divider, Grid } from "@mui/material";
 import React from "react";
 import { Link, useParams } from "react-router-dom";
+import AddToBasketWidget from "../components/add-to-basket-widget/AddToBasketWidget";
+import ProductDetails from "../components/product-details/ProductDetails";
 import Rating from "../components/rating/Rating";
 import { products } from "../data/products";
 import IProduct from "../types/IProduct";
@@ -42,44 +35,10 @@ const ProductScreen = () => {
 					</Card>
 				</Grid>
 				<Grid item xs={4} md={4}>
-					<h1>{product.name}</h1>
-					<Divider className="my-4" />
-					<div className="flex items-center">
-						<Rating
-							rating={product.rating}
-							text={`${product.numReviews} reviews`}
-						/>
-					</div>
-					<Divider className="my-4" />
-					<p>Price: £{product.price}</p>
-					<Divider className="my-4" />
-					<p>Description: {product.description}</p>
+					<ProductDetails {...product} />
 				</Grid>
 				<Grid item xs={3} md={3}>
-					<div style={{ border: "1px solid rgba(0, 0, 0, 0.12)" }}>
-						<div className="mt-3 pb-2 px-4">
-							<div className="flex justify-between">
-								<p>Price:</p> <p>£{product.price}</p>
-							</div>
-						</div>
-						<Divider className="my-1" />
-						<div className="py-2 px-4">
-							<div className="flex justify-between">
-								<p>Status: </p>
-								<p>{product.countInStock > 0 ? "In stock" : "Out of stock"}</p>
-							</div>
-						</div>
-						<Divider className="my-1" />
-						<div className="py-2 px-4">
-							<Button
-								variant="contained"
-								fullWidth={true}
-								disabled={product.countInStock === 0}
-							>
-								Add to Basket
-							</Button>
-						</div>
-					</div>
+					<AddToBasketWidget {...product} />
 				</Grid>
 			</Grid>
 		</section>
